@@ -16,7 +16,7 @@ script = ExtResource("1_0xm2m")
 position = Vector2(0, 0)
 
 [node name="NPC" type="AnimatableBody2D" parent="."]
-position = Vector2(682, 241)
+position = Vector2(662, 215)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
@@ -28,7 +28,7 @@ scale = Vector2(57, 62)
 texture = SubResource("PlaceholderTexture2D_0xm2m")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(312, 477)
+position = Vector2(342, 407)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -40,10 +40,23 @@ scale = Vector2(57, 62)
 texture = SubResource("PlaceholderTexture2D_0xm2m")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 748.0
-offset_top = 217.0
-offset_right = 886.0
-offset_bottom = 240.0
+offset_left = 702.0
+offset_top = 191.0
+offset_right = 840.0
+offset_bottom = 214.0
 text = "Hello! I'm an NPC!"
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(86, 87)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(-0.500004, -9.53674e-07)
+scale = Vector2(57, 62)
+texture = SubResource("PlaceholderTexture2D_0xm2m")
 
 [connection signal="dialogue" from="player" to="." method="_on_player_dialogue"]
