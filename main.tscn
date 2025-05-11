@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://8gtlyklp1af1"]
+
+[ext_resource type="Script" uid="uid://cmt5jt5hhf4tu" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://depgwqalk3qvd" path="res://player.tscn" id="1_ig7tw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(57, 63)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0xm2m"]
+
+[node name="main" type="Node2D"]
+position = Vector2(74, 9)
+script = ExtResource("1_0xm2m")
+
+[node name="player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(0, 0)
+
+[node name="NPC" type="AnimatableBody2D" parent="."]
+position = Vector2(682, 241)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC"]
+position = Vector2(-0.500004, -9.53674e-07)
+scale = Vector2(57, 62)
+texture = SubResource("PlaceholderTexture2D_0xm2m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(312, 477)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-0.500004, -9.53674e-07)
+scale = Vector2(57, 62)
+texture = SubResource("PlaceholderTexture2D_0xm2m")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 748.0
+offset_top = 217.0
+offset_right = 886.0
+offset_bottom = 240.0
+text = "Hello! I'm an NPC!"
+
+[connection signal="dialogue" from="player" to="." method="_on_player_dialogue"]

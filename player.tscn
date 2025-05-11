@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://depgwqalk3qvd"]
+
+[ext_resource type="Script" uid="uid://cpcbb6e26o0al" path="res://character_body_2d.gd" id="1_b26j0"]
+[ext_resource type="Texture2D" uid="uid://bdlhfrcsrjj5h" path="res://assets/sprites/down 1.png" id="2_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://byqal0q88cpvi" path="res://assets/sprites/down 2.png" id="3_nvl01"]
+[ext_resource type="Texture2D" uid="uid://bek7toktk4udp" path="res://assets/sprites/down 3.png" id="4_ivps1"]
+[ext_resource type="Texture2D" uid="uid://bpg585tt17ijs" path="res://assets/sprites/right 1.png" id="5_urp6f"]
+[ext_resource type="Texture2D" uid="uid://cjdofnw6a4xl5" path="res://assets/sprites/right 2.png" id="6_bwjto"]
+[ext_resource type="Texture2D" uid="uid://dc182i6e071yb" path="res://assets/sprites/up 1.png" id="7_606se"]
+[ext_resource type="Texture2D" uid="uid://ddnek67ynvlij" path="res://assets/sprites/up 2.png" id="8_u1c27"]
+[ext_resource type="Texture2D" uid="uid://dohupoavcek7t" path="res://assets/sprites/up 3.png" id="9_op7ga"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_186t8"]
+size = Vector2(57.5, 63.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f50pn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n7ghd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nvl01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n7ghd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ivps1")
+}],
+"loop": true,
+"name": &"down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_urp6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bwjto")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_606se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u1c27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_606se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_op7ga")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b26j0"]
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(33, 29)
+script = ExtResource("1_b26j0")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(22.25, 23.25)
+shape = SubResource("RectangleShape2D_186t8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(22.5, 22.5)
+scale = Vector2(4.0625, 4.0625)
+sprite_frames = SubResource("SpriteFrames_f50pn")
+animation = &"down"
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+position = Vector2(22, 23)
+scale = Vector2(2, 0.6)
+shape = SubResource("RectangleShape2D_b26j0")
